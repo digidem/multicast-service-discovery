@@ -6,20 +6,10 @@ export class Discovery extends EventEmitter {
 	#browse
 
 	async lookup (name) {
-		console.log('lookup', `_${name}`)
-		this.#browse = dnssd.Browser(dnssd.tcp(`_${name}`))
+		this.#browse = dnssd.Browser(dnssd.tcp(`_${name}`)).start()
 
 		this.#browse.on('serviceUp', (service) => {
-			console.log('service up', service)
 			this.emit('peer', name, service)
-		})
-
-		// this.#browse.on('serviceDown', (service) => {})
-
-		return new Promise((resolve) => {
-			this.#browse.start(() => {
-				resolve()
-			})
 		})
 	}
 
@@ -32,7 +22,6 @@ export class Discovery extends EventEmitter {
 	}
 
 	async announce (name, port = 4321, options = {}) {
-		console.log('announce', `_${name}`)
 		this.#advertise = new dnssd.Advertisement(dnssd.tcp(`_${name}`), port, {
 			name: `_${name}`,
 			host: 'mdns-sd-discovery.local'
@@ -45,7 +34,7 @@ export class Discovery extends EventEmitter {
 		})
 	}
 
-	async unannounce (name, port, options = {}) {
+	async unAnnounce (name, port, options = {}) {
 		return new Promise((resolve) => {
 			this.#advertise.stop(() => {
 				resolve()
