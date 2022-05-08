@@ -4,9 +4,6 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,7 +22,9 @@
   },
   "homepage": "https://github.com/digidem/mdns-sd-discovery#readme",
   "dependencies": {
-    "@gravitysoftware/dnssd": "^0.5.3",
-    "@hyperswarm/secret-stream": "^5.2.0"
+    "@gravitysoftware/dnssd": "^0.5.3"
+  },
+  "devDependencies": {
+    "uvu": "^0.5.3"
   }
 }

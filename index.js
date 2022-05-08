@@ -1,10 +1,17 @@
 import { EventEmitter } from 'events'
 import dnssd from '@gravitysoftware/dnssd'
 
+/**
+ * Find peers through mdns service discovery
+ */
 export class Discovery extends EventEmitter {
 	#advertise
 	#browse
 
+	/**
+	 * Lookup a service by its name
+	 * @param {string} name
+	 */
 	async lookup (name) {
 		this.#browse = dnssd.Browser(dnssd.tcp(`_${name}`)).start()
 
@@ -13,6 +20,9 @@ export class Discovery extends EventEmitter {
 		})
 	}
 
+	/**
+	 * Stop looking up a service
+	 */
 	async stopLookup () {
 		return new Promise((resolve) => {
 			this.#browse.stop(() => {
@@ -21,7 +31,13 @@ export class Discovery extends EventEmitter {
 		})
 	}
 
-	async announce (name, port = 4321, options = {}) {
+	/**
+	 * Announce a service with a name and port
+	 * @param {string} name
+	 * @param {number} [port]
+	 * @returns {Promise}
+	 */
+	async announce (name, port = 4321) {
 		this.#advertise = new dnssd.Advertisement(dnssd.tcp(`_${name}`), port, {
 			name: `_${name}`,
 			host: 'mdns-sd-discovery.local'
@@ -34,7 +50,10 @@ export class Discovery extends EventEmitter {
 		})
 	}
 
-	async unAnnounce (name, port, options = {}) {
+	/**
+	 * Stop announcing the service
+	 */
+	async unannounce () {
 		return new Promise((resolve) => {
 			this.#advertise.stop(() => {
 				resolve()
@@ -42,6 +61,10 @@ export class Discovery extends EventEmitter {
 		})
 	}
 
+	/**
+	 * Unannounce and/or 
+	 * @returns {Promise}
+	 */
 	async destroy () {
 		if (this.#advertise) {
 			await this.unannounce()
