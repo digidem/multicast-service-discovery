@@ -45,14 +45,14 @@ export class MdnsDiscovery extends EventEmitter {
 	 * Announce a service with a name and port
 	 * @param {string} name
 	 * @param {Object} [options]
-   * @param {string} [options.host]
-	 * @param {number} [options.port]
+   * @param {string} [options.host=mdns-sd-discovery] - hostname for the service (.local suffix is added automatically)
+	 * @param {number} [options.port=4321] - port for the service
 	 * @returns {Promise}
 	 */
 	async announce (name, options = {}) {
 		const {
 			port = 4321,
-			host = 'mdns-sd-discovery'
+			host = options.host || this.host
 		} = options
 
 		this.#advertise = new dnssd.Advertisement(dnssd.tcp(`_${name}`), port, {
