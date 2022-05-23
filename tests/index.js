@@ -1,18 +1,19 @@
-import { test } from 'uvu'
-import * as assert from 'uvu/assert'
+import { test } from 'brittle'
 
-import { Discovery } from "../index.js";
+import { MdnsDiscovery } from "../index.js";
 
-test('find peers', async () => {
-	const discover1 = new Discovery()
+test('find services', async (t) => {
+	t.plan(3)
+
+	const discover1 = new MdnsDiscovery()
 	await discover1.announce('pizza')
 
-	const discover2 = new Discovery()
+	const discover2 = new MdnsDiscovery()
 
-	discover2.on('peer', (name, peer) => {
-		assert.ok(name === 'pizza')
-		assert.ok(peer.domain === 'local')
-		assert.ok(peer.name === '_pizza')
+	discover2.on('service', (name, service) => {
+		t.ok(name === 'pizza')
+		t.ok(service.domain === 'local')
+		t.ok(service.name === '_pizza')
 
 		discover1.destroy()
 		discover2.destroy()
@@ -20,5 +21,3 @@ test('find peers', async () => {
 
 	await discover2.lookup('pizza')
 })
-
-test.run()

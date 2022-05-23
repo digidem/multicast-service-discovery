@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "documentation readme index.js -f md --readme-file docs/api.md --section API",
+    "test": "brittle tests/*.js"
   },
   "repository": {
     "type": "git",
@@ -15,8 +16,8 @@
     "discovery",
     "hypercore"
   ],
-  "author": "",
-  "license": "MIT",
+  "author": "Digital Democracy",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/digidem/mdns-sd-discovery/issues"
   },
@@ -25,6 +26,9 @@
     "@gravitysoftware/dnssd": "^0.5.3"
   },
   "devDependencies": {
-    "uvu": "^0.5.3"
+    "brittle": "^2.3.1",
+    "documentation": "^13.2.5",
+    "hypercore": "^10.0.0-alpha.41",
+    "random-access-memory": "^4.1.0"
   }
 }

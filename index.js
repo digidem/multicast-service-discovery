@@ -2,11 +2,20 @@ import { EventEmitter } from 'events'
 import dnssd from '@gravitysoftware/dnssd'
 
 /**
- * Find peers through mdns service discovery
+ * Find services through mdns service discovery
  */
-export class Discovery extends EventEmitter {
+export class MdnsDiscovery extends EventEmitter {
 	#advertise
 	#browse
+
+	/**
+	 * @param {Object} [options]
+	 * @param {string} [options.host=mdns-sd-discovery] - hostname for the service (.local suffix is added automatically)
+	 */
+	constructor (options = {}) {
+		super()
+		this.host = options.host || 'mdns-sd-discovery'
+	}
 
 	/**
 	 * Lookup a service by its name
@@ -16,12 +25,13 @@ export class Discovery extends EventEmitter {
 		this.#browse = dnssd.Browser(dnssd.tcp(`_${name}`)).start()
 
 		this.#browse.on('serviceUp', (service) => {
-			this.emit('peer', name, service)
+			this.emit('service', name, service)
 		})
 	}
 
 	/**
 	 * Stop looking up a service
+	 * @returns {Promise}
 	 */
 	async stopLookup () {
 		return new Promise((resolve) => {
@@ -34,13 +44,20 @@ export class Discovery extends EventEmitter {
 	/**
 	 * Announce a service with a name and port
 	 * @param {string} name
-	 * @param {number} [port]
+	 * @param {Object} [options]
+   * @param {string} [options.host]
+	 * @param {number} [options.port]
 	 * @returns {Promise}
 	 */
-	async announce (name, port = 4321) {
+	async announce (name, options = {}) {
+		const {
+			port = 4321,
+			host = 'mdns-sd-discovery'
+		} = options
+
 		this.#advertise = new dnssd.Advertisement(dnssd.tcp(`_${name}`), port, {
 			name: `_${name}`,
-			host: 'mdns-sd-discovery.local'
+			host
 		})
 
 		return new Promise((resolve) => {
@@ -52,6 +69,7 @@ export class Discovery extends EventEmitter {
 
 	/**
 	 * Stop announcing the service
+	 * @returns {Promise}
 	 */
 	async unannounce () {
 		return new Promise((resolve) => {
@@ -62,7 +80,7 @@ export class Discovery extends EventEmitter {
 	}
 
 	/**
-	 * Unannounce and/or 
+	 * Unannounce and/or stop lookup of a service
 	 * @returns {Promise}
 	 */
 	async destroy () {

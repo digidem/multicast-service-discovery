@@ -1,9 +1,20 @@
 # mdns-sd-discovery
 
-## ⚠️ This is not ready yet
+Connect to services on a local network using mdns.
 
-This is a quick sketch of using multicast dns service discovery to find peers on a local network using the [@gravitysoftware/dnssd](https://www.npmjs.com/package/@gravitysoftware/dnssd) package.
+## Install
+
+```shell
+npm i mdns-sd-discovery
+```
+
+## API docs
+
+See the [generated API docs](docs/api.md).
 
 ## Example usage
 
 See the [examples directory](examples/).
+
+## License
+[ISC](LICENSE.md)
