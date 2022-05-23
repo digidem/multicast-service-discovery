@@ -31,14 +31,9 @@ export class MdnsDiscovery extends EventEmitter {
 
 	/**
 	 * Stop looking up a service
-	 * @returns {Promise}
 	 */
 	async stopLookup () {
-		return new Promise((resolve) => {
-			this.#browse.stop(() => {
-				resolve()
-			})
-		})
+		this.#browse.stop()
 	}
 
 	/**
@@ -89,7 +84,7 @@ export class MdnsDiscovery extends EventEmitter {
 		}
 
 		if (this.#browse) {
-			await this.stopLookup()
+			this.stopLookup()
 		}
 	}
 }
