@@ -64,11 +64,12 @@ export class MdnsDiscovery extends EventEmitter {
 
 	/**
 	 * Stop announcing the service
+	 * @param {string} [immediate=false] - if true, unannounce immediately
 	 * @returns {Promise}
 	 */
-	async unannounce () {
+	async unannounce (immediate = false) {
 		return new Promise((resolve) => {
-			this.#advertise.stop(() => {
+			this.#advertise.stop(immediate, () => {
 				resolve()
 			})
 		})
