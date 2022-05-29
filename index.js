@@ -1,91 +1,94 @@
-import { EventEmitter } from 'events'
+import { TypedEmitter } from 'tiny-typed-emitter'
 import dnssd from '@gravitysoftware/dnssd'
 
 /**
  * Find services through mdns service discovery
  */
-export class MdnsDiscovery extends EventEmitter {
+export class MdnsDiscovery extends TypedEmitter {
+	/**
+	 * @type {dnssd.Advertisement|null}
+	 */
 	#advertise
-	#browse
 
 	/**
-	 * @param {Object} [options]
-	 * @param {string} [options.host=mdns-sd-discovery] - hostname for the service (.local suffix is added automatically)
+	 * @type {dnssd.Browser|null}
 	 */
-	constructor (options = {}) {
-		super()
-		this.host = options.host || 'mdns-sd-discovery'
-	}
+	#browse
 
 	/**
 	 * Lookup a service by its name
 	 * @param {string} name
 	 */
 	async lookup (name) {
-		this.#browse = dnssd.Browser(dnssd.tcp(`_${name}`)).start()
+		this.#browse = new dnssd.Browser(dnssd.tcp(`_${name}`))
+
+		this.#browse.on('error', (error) => {
+			this.emit('error', error)
+		})
 
 		this.#browse.on('serviceUp', (service) => {
 			this.emit('service', name, service)
 		})
+
+		this.#browse.on('serviceDown', (service) => {
+			this.emit('service-down', name, service)
+		})
+
+		this.#browse.start()
 	}
 
 	/**
 	 * Stop looking up a service
 	 */
 	async stopLookup () {
+		if (!this.#browse) {
+			return
+		}
+
+		this.removeAllListeners('service')
+		this.removeAllListeners('service-down')
 		this.#browse.stop()
+		this.#browse = null
 	}
 
 	/**
 	 * Announce a service with a name and port
 	 * @param {string} name
-	 * @param {Object} [options]
-   * @param {string} [options.host=mdns-sd-discovery] - hostname for the service (.local suffix is added automatically)
-	 * @param {number} [options.port=4321] - port for the service
-	 * @returns {Promise}
+	 * @param {Object} options
+	 * @param {number} options.port - port for the service
 	 */
-	async announce (name, options = {}) {
-		const {
-			port = 4321,
-			host = options.host || this.host
-		} = options
+	announce (name, options) {
+		const { port } = options
 
 		this.#advertise = new dnssd.Advertisement(dnssd.tcp(`_${name}`), port, {
-			name: `_${name}`,
-			host
+			name: `_${name}`
 		})
 
-		return new Promise((resolve) => {
-			this.#advertise.start(() => {
-				resolve()
-			})
+		this.#advertise.on('error', (error) => {
+			this.emit('error', error)
 		})
+
+		this.#advertise.start()
 	}
 
 	/**
 	 * Stop announcing the service
-	 * @param {string} [immediate=false] - if true, unannounce immediately
-	 * @returns {Promise}
+	 * @param {boolean} [immediate=false] - if true, unannounce immediately
 	 */
-	async unannounce (immediate = false) {
-		return new Promise((resolve) => {
-			this.#advertise.stop(immediate, () => {
-				resolve()
-			})
-		})
+	unannounce (immediate = false) {
+		if (!this.#advertise) {
+			return
+		}
+
+		this.#advertise.stop(immediate)
 	}
 
 	/**
 	 * Unannounce and/or stop lookup of a service
-	 * @returns {Promise}
 	 */
-	async destroy () {
-		if (this.#advertise) {
-			await this.unannounce()
-		}
-
-		if (this.#browse) {
-			this.stopLookup()
-		}
+	destroy () {
+		this.removeAllListeners('error')
+		this.unannounce()
+		this.stopLookup()
 	}
 }

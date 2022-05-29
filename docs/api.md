@@ -5,24 +5,22 @@
 ### Table of Contents
 
 *   [MdnsDiscovery](#mdnsdiscovery)
-    *   [Parameters](#parameters)
     *   [lookup](#lookup)
-        *   [Parameters](#parameters-1)
+        *   [Parameters](#parameters)
     *   [stopLookup](#stoplookup)
     *   [announce](#announce)
-        *   [Parameters](#parameters-2)
+        *   [Parameters](#parameters-1)
     *   [unannounce](#unannounce)
+        *   [Parameters](#parameters-2)
     *   [destroy](#destroy)
+*   [advertise](#advertise)
+*   [browse](#browse)
 
 ## MdnsDiscovery
 
-**Extends EventEmitter**
+**Extends TypedEmitter**
 
 Find services through mdns service discovery
-
-### Parameters
-
-*   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)?**  (optional, default `{}`)
 
 ### lookup
 
@@ -36,8 +34,6 @@ Lookup a service by its name
 
 Stop looking up a service
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** 
-
 ### announce
 
 Announce a service with a name and port
@@ -45,21 +41,26 @@ Announce a service with a name and port
 #### Parameters
 
 *   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
-*   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)?**  (optional, default `{}`)
+*   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
-    *   `options.host` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
-    *   `options.port` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)?** 
-
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** 
+    *   `options.port` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** port for the service
 
 ### unannounce
 
 Stop announcing the service
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** 
+#### Parameters
+
+*   `immediate` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** if true, unannounce immediately (optional, default `false`)
 
 ### destroy
 
 Unannounce and/or stop lookup of a service
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** 
+## advertise
+
+Type: (dnssd.Advertisement | null)
+
+## browse
+
+Type: (dnssd.Browser | null)
