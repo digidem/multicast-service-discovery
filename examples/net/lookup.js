@@ -3,8 +3,6 @@ import { MdnsDiscovery } from "../../index.js";
 
 const discover = new MdnsDiscovery()
 
-await discover.lookup('mdns-net-example')
-
 discover.on('service', (name, service) => {
 	const client = net.createConnection({ port: service.port }, () => {
 		console.log(`connected to ${name} server!`)
@@ -15,3 +13,5 @@ discover.on('service', (name, service) => {
 		client.end()
 	})
 })
+
+discover.lookup('mdns-net-example')

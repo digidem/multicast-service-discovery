@@ -51,5 +51,5 @@ server.on('error', (err) => {
 server.listen(async () => {
 	const address = server.address()
 	// announce the server via mdns
-	await discover.announce('mdns-hypercore-example', { port: address.port })
+	discover.announce('mdns-hypercore-example', { port: address.port })
 })

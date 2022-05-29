@@ -14,8 +14,6 @@ const core = new Hypercore(ram, key)
 // wait for the core to be ready
 await core.ready()
 
-await discover.lookup('mdns-hypercore-example')
-
 discover.on('service', (name, service) => {
 	// create a tcp socket to connect to the service
 	const socket = net.connect({
@@ -41,3 +39,5 @@ discover.on('service', (name, service) => {
 		}
 	})
 })
+
+discover.lookup('mdns-hypercore-example')
