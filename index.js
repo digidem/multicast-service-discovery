@@ -27,11 +27,11 @@ export class MdnsDiscovery extends TypedEmitter {
 		})
 
 		this.#browse.on('serviceUp', (service) => {
-			this.emit('service', name, service)
+			this.emit('service', service)
 		})
 
 		this.#browse.on('serviceDown', (service) => {
-			this.emit('service-down', name, service)
+			this.emit('service-down', service)
 		})
 
 		this.#browse.start()
@@ -56,12 +56,13 @@ export class MdnsDiscovery extends TypedEmitter {
 	 * @param {string} name
 	 * @param {Object} options
 	 * @param {number} options.port - port for the service
+	 * @param {object} options.txt - txt records for the service
 	 */
 	announce (name, options) {
-		const { port } = options
+		const { port, txt } = options
 
-		this.#advertise = new dnssd.Advertisement(dnssd.tcp(`_${name}`), port, {
-			name: `_${name}`
+		this.#advertise = new dnssd.Advertisement(dnssd.tcp(name), port, {
+			txt
 		})
 
 		this.#advertise.on('error', (error) => {

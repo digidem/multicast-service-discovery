@@ -5,7 +5,7 @@ declare module '@gravitysoftware/dnssd' {
 	interface AdvertisementOptions {
 		name?: string,
 		host?: string,
-		txt?: string[],
+		txt?: Object,
 		subtypes?: Object,
 		interface?: Object,
 		hostTTl?: number,
