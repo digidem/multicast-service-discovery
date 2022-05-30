@@ -44,6 +44,7 @@ Announce a service with a name and port
 *   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
     *   `options.port` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** port for the service
+    *   `options.txt` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** txt records for the service
 
 ### unannounce
 
