@@ -2,6 +2,8 @@ import { MdnsDiscovery } from "../../index.js";
 
 const discover = new MdnsDiscovery()
 
-discover.on('service', console.log)
+discover.on('service', (service) => {
+	console.log('found service:', service)
+})
 
-discover.lookup('mdns-example')
+discover.lookup('mdns-basic-example')

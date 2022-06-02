@@ -11,8 +11,11 @@
     "allowJs": true,
     "checkJs": true,
     "noEmit": true,
-    "typeRoots": ["types", "node_modules/@types"]
+    "typeRoots": ["node_modules/@types", "types"],
+    "paths": {
+      "*" : ["./types/*"],
+    }
   },
-  "include": ["**/*"],
+  // "include": ["**/*"],
   "exclude": ["node_modules", "examples", "tests"]
 }

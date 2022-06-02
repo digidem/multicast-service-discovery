@@ -6,34 +6,38 @@ test('find services', async (t) => {
 	t.plan(2)
 
 	const discover1 = new MdnsDiscovery()
-	discover1.announce('pizza', { port: 3456 })
+	discover1.announce('find-service', { port: 3456 })
 
 	const discover2 = new MdnsDiscovery()
 
 	discover2.on('service', (service) => {
 		t.ok(service.domain === 'local')
-		t.ok(service.type.name === 'pizza')
+		t.ok(service.type.name === 'find-service')
 
 		discover1.destroy()
 		discover2.destroy()
 	})
 
-	discover2.lookup('pizza')
+	discover2.lookup('find-service')
 })
 
 test('handle unannouncing services', async (t) => {
-	t.plan(1)
+	t.plan(2)
 
 	const discover1 = new MdnsDiscovery()
 	discover1.announce('pizza', { port: 3456 })
 
 	setTimeout(() => {
 		discover1.unannounce()
-	}, 100);
+	}, 1000);
 
 	const discover2 = new MdnsDiscovery()
 
-	discover2.on('service-down', (service) => {
+	discover2.on('service', (service) => {
+		t.ok(service.type.name === 'pizza')
+	})
+
+	discover2.on('serviceDown', (service) => {
 		t.ok(service.type.name === 'pizza')
 
 		discover1.destroy()

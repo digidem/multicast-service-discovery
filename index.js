@@ -2,16 +2,25 @@ import { TypedEmitter } from 'tiny-typed-emitter'
 import dnssd from '@gravitysoftware/dnssd'
 
 /**
+ * @typedef {Object} MdnsDiscoveryEvents
+ * @property {(service: Object) => void} service
+ * @property {(serviceDown: Object) => void} serviceDown
+ * @property {(stopped: void) => void} stopped
+ * @property {(error: Error) => void} error
+ */
+
+/**
  * Find services through mdns service discovery
+ * @extends {TypedEmitter<MdnsDiscoveryEvents>}
  */
 export class MdnsDiscovery extends TypedEmitter {
 	/**
-	 * @type {dnssd.Advertisement|null}
+	 * @type {dnssd.Advertisement|undefined}
 	 */
 	#advertise
 
 	/**
-	 * @type {dnssd.Browser|null}
+	 * @type {dnssd.Browser|undefined}
 	 */
 	#browse
 
@@ -20,6 +29,10 @@ export class MdnsDiscovery extends TypedEmitter {
 	 * @param {string} name
 	 */
 	async lookup (name) {
+		if (this.#browse) {
+			return
+		}
+
 		this.#browse = new dnssd.Browser(dnssd.tcp(`_${name}`))
 
 		this.#browse.on('error', (error) => {
@@ -31,7 +44,7 @@ export class MdnsDiscovery extends TypedEmitter {
 		})
 
 		this.#browse.on('serviceDown', (service) => {
-			this.emit('service-down', service)
+			this.emit('serviceDown', service)
 		})
 
 		this.#browse.start()
@@ -45,11 +58,10 @@ export class MdnsDiscovery extends TypedEmitter {
 			return
 		}
 
-		this.removeAllListeners('service')
-		this.removeAllListeners('service-down')
 		this.#browse.stop()
-		this.#browse = null
-	}
+		this.#browse = undefined
+		this.removeAllListeners('service')
+		this.removeAllListeners('serviceDown')	}
 
 	/**
 	 * Announce a service with a name and port
@@ -61,12 +73,20 @@ export class MdnsDiscovery extends TypedEmitter {
 	announce (name, options) {
 		const { port, txt } = options
 
+		if (this.#advertise) {
+			return
+		}
+
 		this.#advertise = new dnssd.Advertisement(dnssd.tcp(name), port, {
 			txt
 		})
 
 		this.#advertise.on('error', (error) => {
 			this.emit('error', error)
+		})
+
+		this.#advertise.on('stopped', () => {
+			this.emit('stopped')
 		})
 
 		this.#advertise.start()
@@ -82,6 +102,8 @@ export class MdnsDiscovery extends TypedEmitter {
 		}
 
 		this.#advertise.stop(immediate)
+		this.#advertise = undefined
+		this.removeAllListeners('stopped')
 	}
 
 	/**

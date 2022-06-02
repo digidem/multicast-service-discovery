@@ -20,6 +20,7 @@ declare module '@gravitysoftware/dnssd' {
 		);
 
 		on(event: 'error', listener: (error: Error) => void): void;
+		on(event: 'stopped', listener: () => void): this;
 		start(): void;
 		stop(immediate: Boolean): void;
 	}
@@ -33,7 +34,7 @@ declare module '@gravitysoftware/dnssd' {
 		start(): void;
 		stop(): void;
 	}
-	
+
 	export class ServiceType {
 		
 	}
