@@ -27,14 +27,11 @@ test('handle unannouncing services', async (t) => {
 	const discover1 = new MdnsDiscovery()
 	discover1.announce('pizza', { port: 3456 })
 
-	setTimeout(() => {
-		discover1.unannounce()
-	}, 1000);
-
 	const discover2 = new MdnsDiscovery()
 
 	discover2.on('service', (service) => {
 		t.ok(service.type.name === 'pizza')
+		discover1.unannounce()
 	})
 
 	discover2.on('serviceDown', (service) => {
