@@ -43,3 +43,26 @@ test('handle unannouncing services', async (t) => {
 
 	discover2.lookup('pizza')
 })
+
+test('update service txt records', async (t) => {
+	t.plan(2)
+
+	const discover1 = new MdnsDiscovery()
+	discover1.announce('pizza', { port: 3456, txt: { example: 'pizza' } })
+
+	const discover2 = new MdnsDiscovery()
+
+	discover2.on('service', (service) => {
+		t.ok(service.type.name === 'pizza')
+		discover1.updateTxt({ example: 'tamale' })
+	})
+
+	discover2.on('serviceChanged', (service) => {
+		t.ok(service.txt.example === 'tamale')
+
+		discover1.destroy()
+		discover2.destroy()
+	})
+
+	discover2.lookup('pizza')
+})

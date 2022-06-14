@@ -43,6 +43,11 @@ export class MdnsDiscovery extends TypedEmitter {
 			this.emit('service', service)
 		})
 
+
+		this.#browse.on('serviceChanged', (service) => {
+			this.emit('serviceChanged', service)
+		})
+
 		this.#browse.on('serviceDown', (service) => {
 			this.emit('serviceDown', service)
 		})
@@ -61,7 +66,9 @@ export class MdnsDiscovery extends TypedEmitter {
 		this.#browse.stop()
 		this.#browse = undefined
 		this.removeAllListeners('service')
-		this.removeAllListeners('serviceDown')	}
+		this.removeAllListeners('serviceChanged')
+		this.removeAllListeners('serviceDown')
+	}
 
 	/**
 	 * Announce a service with a name and port
@@ -90,6 +97,13 @@ export class MdnsDiscovery extends TypedEmitter {
 		})
 
 		this.#advertise.start()
+	}
+
+	/**
+	 * @param {object} txt - object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations
+	 */
+	updateTxt (txt) {
+		this.#advertise.updateTXT(txt)
 	}
 
 	/**
