@@ -23,6 +23,7 @@ declare module '@gravitysoftware/dnssd' {
 		on(event: 'stopped', listener: () => void): this;
 		start(): void;
 		stop(immediate: Boolean): void;
+		updateTXT(txt: Object): void;
 	}
 	
 	export class Browser {
@@ -31,6 +32,7 @@ declare module '@gravitysoftware/dnssd' {
 		on(event: 'error', listener: (error: Error) => void): void;
 		on(event: 'serviceUp', listener: (service: ServiceType) => void): this;
 		on(event: 'serviceDown', listener: (service: ServiceType) => void): this;
+		on(event: 'serviceChanged', listener: (service: ServiceType) => void): this;
 		start(): void;
 		stop(): void;
 	}
@@ -38,5 +40,4 @@ declare module '@gravitysoftware/dnssd' {
 	export class ServiceType {
 		
 	}
-
 }

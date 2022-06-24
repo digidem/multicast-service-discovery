@@ -5,6 +5,7 @@ import dnssd from '@gravitysoftware/dnssd'
  * @typedef {Object} MdnsDiscoveryEvents
  * @property {(service: Object) => void} service
  * @property {(serviceDown: Object) => void} serviceDown
+ * @property {(serviceChanged: Object) => void} serviceChanged
  * @property {(stopped: void) => void} stopped
  * @property {(error: Error) => void} error
  */
@@ -103,7 +104,7 @@ export class MdnsDiscovery extends TypedEmitter {
 	 * @param {object} txt - object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations
 	 */
 	updateTxt (txt) {
-		this.#advertise.updateTXT(txt)
+		this.#advertise?.updateTXT(txt)
 	}
 
 	/**

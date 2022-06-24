@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "files": [
+    "*.d.ts*"
+  ],
   "scripts": {
     "build": "documentation readme index.js -f md --readme-file docs/api.md --section API",
     "type": "tsc",
-    "test": "brittle tests/*.js"
+    "test": "brittle tests/*.js",
+    "prepublish": "npm run type"
   },
   "repository": {
     "type": "git",
@@ -32,6 +36,6 @@
     "documentation": "^13.2.5",
     "hypercore": "^10.0.0-alpha.41",
     "random-access-memory": "^4.1.0",
-    "typescript": "^4.7.2"
+    "typescript": "^4.7.4"
   }
 }
