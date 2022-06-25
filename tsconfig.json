@@ -16,7 +16,7 @@
     "removeComments": true,
     "typeRoots": ["node_modules/@types", "types"],
     "paths": {
-      "*" : ["./types/*"],
+      "*": ["./types/*"]
     }
   },
   "include": ["index.js", "types"],

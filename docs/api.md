@@ -4,17 +4,17 @@
 
 ### Table of Contents
 
-*   [MdnsDiscovery](#mdnsdiscovery)
-    *   [lookup](#lookup)
-        *   [Parameters](#parameters)
-    *   [stopLookup](#stoplookup)
-    *   [announce](#announce)
-        *   [Parameters](#parameters-1)
-    *   [unannounce](#unannounce)
-        *   [Parameters](#parameters-2)
-    *   [destroy](#destroy)
-*   [advertise](#advertise)
-*   [browse](#browse)
+- [MdnsDiscovery](#mdnsdiscovery)
+  - [lookup](#lookup)
+    - [Parameters](#parameters)
+  - [stopLookup](#stoplookup)
+  - [announce](#announce)
+    - [Parameters](#parameters-1)
+  - [unannounce](#unannounce)
+    - [Parameters](#parameters-2)
+  - [destroy](#destroy)
+- [advertise](#advertise)
+- [browse](#browse)
 
 ## MdnsDiscovery
 
@@ -28,7 +28,7 @@ Lookup a service by its name
 
 #### Parameters
 
-*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+- `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 ### stopLookup
 
@@ -40,11 +40,11 @@ Announce a service with a name and port
 
 #### Parameters
 
-*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
-*   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+- `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+- `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
 
-    *   `options.port` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** port for the service
-    *   `options.txt` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** txt records for the service
+  - `options.port` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** port for the service
+  - `options.txt` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** txt records for the service
 
 ### unannounce
 
@@ -52,7 +52,7 @@ Stop announcing the service
 
 #### Parameters
 
-*   `immediate` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** if true, unannounce immediately (optional, default `false`)
+- `immediate` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** if true, unannounce immediately (optional, default `false`)
 
 ### destroy
 

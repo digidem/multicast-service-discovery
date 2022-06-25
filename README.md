@@ -17,4 +17,5 @@ See the [generated API docs](docs/api.md).
 See the [examples directory](examples/).
 
 ## License
+
 [ISC](LICENSE.md)
