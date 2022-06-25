@@ -25,7 +25,7 @@ declare module '@gravitysoftware/dnssd' {
 		stop(immediate: Boolean): void;
 		updateTXT(txt: Object): void;
 	}
-	
+
 	export class Browser {
 		constructor(type: ServiceType);
 
@@ -38,6 +38,10 @@ declare module '@gravitysoftware/dnssd' {
 	}
 
 	export class ServiceType {
-		
+		host: string;
+		port: string;
+		txt: {
+			[key: string]: any
+		}
 	}
 }

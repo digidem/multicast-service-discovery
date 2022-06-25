@@ -1,11 +1,13 @@
 import { TypedEmitter } from 'tiny-typed-emitter'
 import dnssd from '@gravitysoftware/dnssd'
 
+
+
 /**
  * @typedef {Object} MdnsDiscoveryEvents
- * @property {(service: Object) => void} service
- * @property {(serviceDown: Object) => void} serviceDown
- * @property {(serviceChanged: Object) => void} serviceChanged
+ * @property {(service: import('@gravitysoftware/dnssd').ServiceType) => void} service
+ * @property {(serviceDown: import('@gravitysoftware/dnssd').ServiceType) => void} serviceDown
+ * @property {(serviceChanged: import('@gravitysoftware/dnssd').ServiceType) => void} serviceChanged
  * @property {(stopped: void) => void} stopped
  * @property {(error: Error) => void} error
  */
@@ -43,7 +45,6 @@ export class MdnsDiscovery extends TypedEmitter {
 		this.#browse.on('serviceUp', (service) => {
 			this.emit('service', service)
 		})
-
 
 		this.#browse.on('serviceChanged', (service) => {
 			this.emit('serviceChanged', service)

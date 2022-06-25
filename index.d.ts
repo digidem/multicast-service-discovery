@@ -12,9 +12,9 @@ export class MdnsDiscovery extends TypedEmitter<MdnsDiscoveryEvents> {
     #private;
 }
 export type MdnsDiscoveryEvents = {
-    service: (service: Object) => void;
-    serviceDown: (serviceDown: Object) => void;
-    serviceChanged: (serviceChanged: Object) => void;
+    service: (service: import('@gravitysoftware/dnssd').ServiceType) => void;
+    serviceDown: (serviceDown: import('@gravitysoftware/dnssd').ServiceType) => void;
+    serviceChanged: (serviceChanged: import('@gravitysoftware/dnssd').ServiceType) => void;
     stopped: (stopped: void) => void;
     error: (error: Error) => void;
 };
