@@ -39,7 +39,7 @@ declare module "@gravitysoftware/dnssd" {
 
   export class ServiceType {
     host: string;
-    port: string;
+    port: number;
     txt: {
       [key: string]: any;
     };
