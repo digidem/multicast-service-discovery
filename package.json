@@ -5,9 +5,6 @@
   "main": "index.js",
   "type": "module",
   "types": "index.d.ts",
-  "files": [
-    "*.d.ts*"
-  ],
   "scripts": {
     "lint": "eslint .",
     "format": "prettier . --write",
