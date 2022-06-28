@@ -1,5 +1,5 @@
-import { TypedEmitter } from "tiny-typed-emitter";
-import dnssd from "@gravitysoftware/dnssd";
+import { TypedEmitter } from 'tiny-typed-emitter'
+import dnssd from '@gravitysoftware/dnssd'
 
 /**
  * @typedef {Object} MdnsDiscoveryEvents
@@ -18,12 +18,12 @@ export class MdnsDiscovery extends TypedEmitter {
   /**
    * @type {dnssd.Advertisement|undefined}
    */
-  #advertise;
+  #advertise
 
   /**
    * @type {dnssd.Browser|undefined}
    */
-  #browse;
+  #browse
 
   /**
    * Lookup a service by its name
@@ -31,28 +31,28 @@ export class MdnsDiscovery extends TypedEmitter {
    */
   async lookup(name) {
     if (this.#browse) {
-      return;
+      return
     }
 
-    this.#browse = new dnssd.Browser(dnssd.tcp(`_${name}`));
+    this.#browse = new dnssd.Browser(dnssd.tcp(`_${name}`))
 
-    this.#browse.on("error", (error) => {
-      this.emit("error", error);
-    });
+    this.#browse.on('error', (error) => {
+      this.emit('error', error)
+    })
 
-    this.#browse.on("serviceUp", (service) => {
-      this.emit("service", service);
-    });
+    this.#browse.on('serviceUp', (service) => {
+      this.emit('service', service)
+    })
 
-    this.#browse.on("serviceChanged", (service) => {
-      this.emit("serviceChanged", service);
-    });
+    this.#browse.on('serviceChanged', (service) => {
+      this.emit('serviceChanged', service)
+    })
 
-    this.#browse.on("serviceDown", (service) => {
-      this.emit("serviceDown", service);
-    });
+    this.#browse.on('serviceDown', (service) => {
+      this.emit('serviceDown', service)
+    })
 
-    this.#browse.start();
+    this.#browse.start()
   }
 
   /**
@@ -60,14 +60,14 @@ export class MdnsDiscovery extends TypedEmitter {
    */
   async stopLookup() {
     if (!this.#browse) {
-      return;
+      return
     }
 
-    this.#browse.stop();
-    this.#browse = undefined;
-    this.removeAllListeners("service");
-    this.removeAllListeners("serviceChanged");
-    this.removeAllListeners("serviceDown");
+    this.#browse.stop()
+    this.#browse = undefined
+    this.removeAllListeners('service')
+    this.removeAllListeners('serviceChanged')
+    this.removeAllListeners('serviceDown')
   }
 
   /**
@@ -78,32 +78,32 @@ export class MdnsDiscovery extends TypedEmitter {
    * @param {object} options.txt - txt records for the service
    */
   announce(name, options) {
-    const { port, txt } = options;
+    const { port, txt } = options
 
     if (this.#advertise) {
-      return;
+      return
     }
 
     this.#advertise = new dnssd.Advertisement(dnssd.tcp(name), port, {
       txt,
-    });
+    })
 
-    this.#advertise.on("error", (error) => {
-      this.emit("error", error);
-    });
+    this.#advertise.on('error', (error) => {
+      this.emit('error', error)
+    })
 
-    this.#advertise.on("stopped", () => {
-      this.emit("stopped");
-    });
+    this.#advertise.on('stopped', () => {
+      this.emit('stopped')
+    })
 
-    this.#advertise.start();
+    this.#advertise.start()
   }
 
   /**
    * @param {object} txt - object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations
    */
   updateTxt(txt) {
-    this.#advertise?.updateTXT(txt);
+    this.#advertise?.updateTXT(txt)
   }
 
   /**
@@ -112,20 +112,20 @@ export class MdnsDiscovery extends TypedEmitter {
    */
   unannounce(immediate = false) {
     if (!this.#advertise) {
-      return;
+      return
     }
 
-    this.#advertise.stop(immediate);
-    this.#advertise = undefined;
-    this.removeAllListeners("stopped");
+    this.#advertise.stop(immediate)
+    this.#advertise = undefined
+    this.removeAllListeners('stopped')
   }
 
   /**
    * Unannounce and/or stop lookup of a service
    */
   destroy() {
-    this.removeAllListeners("error");
-    this.unannounce();
-    this.stopLookup();
+    this.removeAllListeners('error')
+    this.unannounce()
+    this.stopLookup()
   }
 }

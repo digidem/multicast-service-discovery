@@ -1,9 +1,9 @@
-import { MdnsDiscovery } from "../../index.js";
+import { MdnsDiscovery } from '../../index.js'
 
-const discover = new MdnsDiscovery();
+const discover = new MdnsDiscovery()
 
-discover.announce("mdns-basic-example", { port: 3456 });
+discover.announce('mdns-basic-example', { port: 3456 })
 
 setTimeout(() => {
-  discover.updateTxt({ example: "tamale" });
-}, 5000);
+  discover.updateTxt({ example: 'tamale' })
+}, 5000)

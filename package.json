@@ -13,6 +13,10 @@
     "test": "brittle tests/*.js",
     "prepublish": "npm run type"
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/digidem/mdns-sd-discovery.git"
