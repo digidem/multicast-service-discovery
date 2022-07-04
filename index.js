@@ -28,14 +28,17 @@ export class MdnsDiscovery extends TypedEmitter {
 
   /**
    * Lookup a service by its name
-   * @param {string} name
+   * @param {string} serviceType
    */
-  async lookup(name) {
+  async lookup(serviceType) {
     if (this.#browse) {
       return
     }
 
-    this.#browse = new dnssd.Browser(dnssd.tcp(`_${name}`))
+    const service =
+      typeof serviceType === 'string' ? dnssd.tcp(serviceType) : serviceType
+
+    this.#browse = new dnssd.Browser(service)
 
     this.#browse.on('error', (error) => {
       this.emit('error', error)
@@ -80,19 +83,22 @@ export class MdnsDiscovery extends TypedEmitter {
 
   /**
    * Announce a service with a name and port
-   * @param {string} name
+   * @param {dnssd.ServiceType|string} serviceType
    * @param {Object} options
    * @param {number} options.port - port for the service
    * @param {object} options.txt - txt records for the service
    */
-  announce(name, options) {
+  announce(serviceType, options) {
     const { port, txt } = options
 
     if (this.#advertise) {
       return
     }
 
-    this.#advertise = new dnssd.Advertisement(dnssd.tcp(name), port, {
+    const service =
+      typeof serviceType === 'string' ? dnssd.tcp(serviceType) : serviceType
+
+    this.#advertise = new dnssd.Advertisement(service, port, {
       txt,
     })
 
@@ -112,6 +118,13 @@ export class MdnsDiscovery extends TypedEmitter {
    */
   updateTxt(txt) {
     this.#advertise?.updateTXT(txt)
+  }
+
+  /**
+   * @param {dnssd.ServiceTypeOptions} options
+   */
+  createServiceType(options) {
+    return new dnssd.ServiceType(options)
   }
 
   /**

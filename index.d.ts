@@ -1,15 +1,17 @@
+/// <reference types="gravitysoftware__dnssd" />
 export class MdnsDiscovery extends TypedEmitter<MdnsDiscoveryEvents> {
   constructor()
-  lookup(name: string): Promise<void>
+  lookup(serviceType: string): Promise<void>
   stopLookup(): Promise<void>
   announce(
-    name: string,
+    serviceType: dnssd.ServiceType | string,
     options: {
       port: number
       txt: object
     }
   ): void
   updateTxt(txt: object): void
+  createServiceType(options: dnssd.ServiceTypeOptions): dnssd.ServiceType
   unannounce(immediate?: boolean | undefined): void
   destroy(): void
   #private
@@ -27,4 +29,5 @@ export type MdnsDiscoveryEvents = {
   error: (error: Error) => void
 }
 import { TypedEmitter } from 'tiny-typed-emitter'
+import dnssd from '@gravitysoftware/dnssd'
 //# sourceMappingURL=index.d.ts.map

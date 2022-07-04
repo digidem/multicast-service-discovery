@@ -13,8 +13,10 @@
     - [Parameters](#parameters-1)
   - [updateTxt](#updatetxt)
     - [Parameters](#parameters-2)
-  - [unannounce](#unannounce)
+  - [createServiceType](#createservicetype)
     - [Parameters](#parameters-3)
+  - [unannounce](#unannounce)
+    - [Parameters](#parameters-4)
   - [destroy](#destroy)
 - [advertise](#advertise)
 - [browse](#browse)
@@ -35,7 +37,7 @@ Lookup a service by its name
 
 #### Parameters
 
-- `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+- `serviceType` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 ### stopLookup
 
@@ -47,7 +49,7 @@ Announce a service with a name and port
 
 #### Parameters
 
-- `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+- `serviceType` **(dnssd.ServiceType | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
 - `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
 
   - `options.port` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** port for the service
@@ -58,6 +60,12 @@ Announce a service with a name and port
 #### Parameters
 
 - `txt` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: <https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations>
+
+### createServiceType
+
+#### Parameters
+
+- `options` **dnssd.ServiceTypeOptions**
 
 ### unannounce
 
