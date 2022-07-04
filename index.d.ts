@@ -22,7 +22,8 @@ export type MdnsDiscoveryEvents = {
   serviceChanged: (
     serviceChanged: import('@gravitysoftware/dnssd').ServiceType
   ) => void
-  stopped: (stopped: void) => void
+  stopAnnouncing: (stopAnnouncing: void) => void
+  stopLookup: (stopLookup: void) => void
   error: (error: Error) => void
 }
 import { TypedEmitter } from 'tiny-typed-emitter'

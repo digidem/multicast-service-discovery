@@ -6,7 +6,8 @@ import dnssd from '@gravitysoftware/dnssd'
  * @property {(service: import('@gravitysoftware/dnssd').ServiceType) => void} service
  * @property {(serviceDown: import('@gravitysoftware/dnssd').ServiceType) => void} serviceDown
  * @property {(serviceChanged: import('@gravitysoftware/dnssd').ServiceType) => void} serviceChanged
- * @property {(stopped: void) => void} stopped
+ * @property {(stopAnnouncing: void) => void} stopAnnouncing
+ * @property {(stopLookup: void) => void} stopLookup
  * @property {(error: Error) => void} error
  */
 
@@ -52,6 +53,10 @@ export class MdnsDiscovery extends TypedEmitter {
       this.emit('serviceDown', service)
     })
 
+    this.#browse.on('stop', () => {
+      this.emit('stopLookup')
+    })
+
     this.#browse.start()
   }
 
@@ -64,10 +69,13 @@ export class MdnsDiscovery extends TypedEmitter {
     }
 
     this.#browse.stop()
-    this.#browse = undefined
-    this.removeAllListeners('service')
-    this.removeAllListeners('serviceChanged')
-    this.removeAllListeners('serviceDown')
+    this.on('stopLookup', () => {
+      this.#browse = undefined
+      this.removeAllListeners('service')
+      this.removeAllListeners('serviceChanged')
+      this.removeAllListeners('serviceDown')
+      this.removeAllListeners('stopLookup')
+    })
   }
 
   /**
@@ -93,7 +101,7 @@ export class MdnsDiscovery extends TypedEmitter {
     })
 
     this.#advertise.on('stopped', () => {
-      this.emit('stopped')
+      this.emit('stopAnnouncing')
     })
 
     this.#advertise.start()
@@ -116,8 +124,11 @@ export class MdnsDiscovery extends TypedEmitter {
     }
 
     this.#advertise.stop(immediate)
-    this.#advertise = undefined
-    this.removeAllListeners('stopped')
+
+    this.on('stopAnnouncing', () => {
+      this.#advertise = undefined
+      this.removeAllListeners('stopAnnouncing')
+    })
   }
 
   /**

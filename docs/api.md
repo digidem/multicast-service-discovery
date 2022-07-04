@@ -4,17 +4,24 @@
 
 ### Table of Contents
 
+- [MdnsDiscoveryEvents](#mdnsdiscoveryevents)
 - [MdnsDiscovery](#mdnsdiscovery)
   - [lookup](#lookup)
     - [Parameters](#parameters)
   - [stopLookup](#stoplookup)
   - [announce](#announce)
     - [Parameters](#parameters-1)
-  - [unannounce](#unannounce)
+  - [updateTxt](#updatetxt)
     - [Parameters](#parameters-2)
+  - [unannounce](#unannounce)
+    - [Parameters](#parameters-3)
   - [destroy](#destroy)
 - [advertise](#advertise)
 - [browse](#browse)
+
+## MdnsDiscoveryEvents
+
+Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
 ## MdnsDiscovery
 
@@ -46,6 +53,12 @@ Announce a service with a name and port
   - `options.port` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** port for the service
   - `options.txt` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** txt records for the service
 
+### updateTxt
+
+#### Parameters
+
+- `txt` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: <https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations>
+
 ### unannounce
 
 Stop announcing the service
@@ -60,8 +73,8 @@ Unannounce and/or stop lookup of a service
 
 ## advertise
 
-Type: (dnssd.Advertisement | null)
+Type: (dnssd.Advertisement | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))
 
 ## browse
 
-Type: (dnssd.Browser | null)
+Type: (dnssd.Browser | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))

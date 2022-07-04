@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint .",
     "format": "prettier . --write",
-    "build": "documentation readme index.js -f md --readme-file docs/api.md --section API",
+    "doc": "documentation readme index.js -f md --readme-file docs/api.md --section API",
     "type": "tsc",
     "test": "brittle tests/*.js",
     "prepublish": "npm run type"

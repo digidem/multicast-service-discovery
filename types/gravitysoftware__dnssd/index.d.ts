@@ -16,7 +16,7 @@ declare module '@gravitysoftware/dnssd' {
     constructor(type: ServiceType, port: number, options?: AdvertisementOptions)
 
     on(event: 'error', listener: (error: Error) => void): void
-    on(event: 'stopped', listener: () => void): this
+    on(event: 'stopped', listener: () => void): void
     start(): void
     stop(immediate: Boolean): void
     updateTXT(txt: Object): void
@@ -26,9 +26,10 @@ declare module '@gravitysoftware/dnssd' {
     constructor(type: ServiceType)
 
     on(event: 'error', listener: (error: Error) => void): void
-    on(event: 'serviceUp', listener: (service: ServiceType) => void): this
-    on(event: 'serviceDown', listener: (service: ServiceType) => void): this
-    on(event: 'serviceChanged', listener: (service: ServiceType) => void): this
+    on(event: 'serviceUp', listener: (service: ServiceType) => void): void
+    on(event: 'serviceDown', listener: (service: ServiceType) => void): void
+    on(event: 'serviceChanged', listener: (service: ServiceType) => void): void
+    on(event: 'stop', listener: () => void): void
     start(): void
     stop(): void
   }
