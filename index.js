@@ -28,7 +28,7 @@ export class MdnsDiscovery extends TypedEmitter {
 
   /**
    * Lookup a service by its name
-   * @param {string} serviceType
+   * @param {dnssd.ServiceType|string} serviceType
    */
   async lookup(serviceType) {
     if (this.#browse) {

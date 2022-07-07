@@ -4,22 +4,22 @@
 
 ### Table of Contents
 
-- [MdnsDiscoveryEvents](#mdnsdiscoveryevents)
-- [MdnsDiscovery](#mdnsdiscovery)
-  - [lookup](#lookup)
-    - [Parameters](#parameters)
-  - [stopLookup](#stoplookup)
-  - [announce](#announce)
-    - [Parameters](#parameters-1)
-  - [updateTxt](#updatetxt)
-    - [Parameters](#parameters-2)
-  - [createServiceType](#createservicetype)
-    - [Parameters](#parameters-3)
-  - [unannounce](#unannounce)
-    - [Parameters](#parameters-4)
-  - [destroy](#destroy)
-- [advertise](#advertise)
-- [browse](#browse)
+*   [MdnsDiscoveryEvents](#mdnsdiscoveryevents)
+*   [MdnsDiscovery](#mdnsdiscovery)
+    *   [lookup](#lookup)
+        *   [Parameters](#parameters)
+    *   [stopLookup](#stoplookup)
+    *   [announce](#announce)
+        *   [Parameters](#parameters-1)
+    *   [updateTxt](#updatetxt)
+        *   [Parameters](#parameters-2)
+    *   [createServiceType](#createservicetype)
+        *   [Parameters](#parameters-3)
+    *   [unannounce](#unannounce)
+        *   [Parameters](#parameters-4)
+    *   [destroy](#destroy)
+*   [advertise](#advertise)
+*   [browse](#browse)
 
 ## MdnsDiscoveryEvents
 
@@ -37,7 +37,7 @@ Lookup a service by its name
 
 #### Parameters
 
-- `serviceType` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+*   `serviceType` **(dnssd.ServiceType | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
 
 ### stopLookup
 
@@ -49,23 +49,23 @@ Announce a service with a name and port
 
 #### Parameters
 
-- `serviceType` **(dnssd.ServiceType | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
-- `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
+*   `serviceType` **(dnssd.ServiceType | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+*   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
-  - `options.port` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** port for the service
-  - `options.txt` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** txt records for the service
+    *   `options.port` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** port for the service
+    *   `options.txt` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** txt records for the service
 
 ### updateTxt
 
 #### Parameters
 
-- `txt` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: <https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations>
+*   `txt` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: <https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations>
 
 ### createServiceType
 
 #### Parameters
 
-- `options` **dnssd.ServiceTypeOptions**
+*   `options` **dnssd.ServiceTypeOptions** 
 
 ### unannounce
 
@@ -73,7 +73,7 @@ Stop announcing the service
 
 #### Parameters
 
-- `immediate` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** if true, unannounce immediately (optional, default `false`)
+*   `immediate` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** if true, unannounce immediately (optional, default `false`)
 
 ### destroy
 
