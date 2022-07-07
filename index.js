@@ -3,9 +3,9 @@ import dnssd from '@gravitysoftware/dnssd'
 
 /**
  * @typedef {Object} MdnsDiscoveryEvents
- * @property {(service: dnssd.ServiceType) => void} service
- * @property {(serviceDown: dnssd.ServiceType) => void} serviceDown
- * @property {(serviceChanged: dnssd.ServiceType) => void} serviceChanged
+ * @property {(service: import('@gravitysoftware/dnssd').ServiceType) => void} service
+ * @property {(serviceDown: import('@gravitysoftware/dnssd').ServiceType) => void} serviceDown
+ * @property {(serviceChanged: import('@gravitysoftware/dnssd').ServiceType) => void} serviceChanged
  * @property {(stopAnnouncing: void) => void} stopAnnouncing
  * @property {(stopLookup: void) => void} stopLookup
  * @property {(error: Error) => void} error
@@ -17,18 +17,18 @@ import dnssd from '@gravitysoftware/dnssd'
  */
 export class MdnsDiscovery extends TypedEmitter {
   /**
-   * @type {dnssd.Advertisement|undefined}
+   * @type {import('@gravitysoftware/dnssd').Advertisement|undefined}
    */
   #advertise
 
   /**
-   * @type {dnssd.Browser|undefined}
+   * @type {import('@gravitysoftware/dnssd').Browser|undefined}
    */
   #browse
 
   /**
    * Lookup a service by its name
-   * @param {dnssd.ServiceType|string} serviceType
+   * @param {import('@gravitysoftware/dnssd').ServiceType|string} serviceType
    */
   async lookup(serviceType) {
     if (this.#browse) {
@@ -83,7 +83,7 @@ export class MdnsDiscovery extends TypedEmitter {
 
   /**
    * Announce a service with a name and port
-   * @param {dnssd.ServiceType|string} serviceType
+   * @param {import('@gravitysoftware/dnssd').ServiceType|string} serviceType
    * @param {Object} options
    * @param {number} options.port - port for the service
    * @param {object} options.txt - txt records for the service
@@ -121,7 +121,7 @@ export class MdnsDiscovery extends TypedEmitter {
   }
 
   /**
-   * @param {dnssd.ServiceTypeOptions} options
+   * @param {import('@gravitysoftware/dnssd').ServiceTypeOptions} options
    */
   createServiceType(options) {
     return new dnssd.ServiceType(options)
