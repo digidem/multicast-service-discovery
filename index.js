@@ -3,9 +3,9 @@ import dnssd from '@gravitysoftware/dnssd'
 
 /**
  * @typedef {Object} MdnsDiscoveryEvents
- * @property {(service: import('@gravitysoftware/dnssd').ServiceType) => void} service
- * @property {(serviceDown: import('@gravitysoftware/dnssd').ServiceType) => void} serviceDown
- * @property {(serviceChanged: import('@gravitysoftware/dnssd').ServiceType) => void} serviceChanged
+ * @property {(service: dnssd.ServiceType) => void} service
+ * @property {(serviceDown: dnssd.ServiceType) => void} serviceDown
+ * @property {(serviceChanged: dnssd.ServiceType) => void} serviceChanged
  * @property {(stopAnnouncing: void) => void} stopAnnouncing
  * @property {(stopLookup: void) => void} stopLookup
  * @property {(error: Error) => void} error
