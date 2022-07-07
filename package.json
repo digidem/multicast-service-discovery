@@ -1,6 +1,6 @@
 {
   "name": "mdns-sd-discovery",
-  "version": "3.3.2",
+  "version": "3.3.3",
   "description": "",
   "main": "index.js",
   "type": "module",
