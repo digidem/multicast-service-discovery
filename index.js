@@ -148,7 +148,6 @@ export class MdnsDiscovery extends TypedEmitter {
    * Unannounce and/or stop lookup of a service
    */
   destroy() {
-    this.removeAllListeners('error')
     this.unannounce()
     this.stopLookup()
   }
