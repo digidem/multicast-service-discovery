@@ -3,9 +3,9 @@ import dnssd from '@gravitysoftware/dnssd'
 
 /**
  * @typedef {Object} MdnsDiscoveryEvents
- * @property {(service: import('@gravitysoftware/dnssd').ServiceType) => void} service
- * @property {(serviceDown: import('@gravitysoftware/dnssd').ServiceType) => void} serviceDown
- * @property {(serviceChanged: import('@gravitysoftware/dnssd').ServiceType) => void} serviceChanged
+ * @property {(service: import('@gravitysoftware/dnssd').Service) => void} service
+ * @property {(serviceDown: import('@gravitysoftware/dnssd').Service) => void} serviceDown
+ * @property {(serviceChanged: import('@gravitysoftware/dnssd').Service) => void} serviceChanged
  * @property {(stopAnnouncing: void) => void} stopAnnouncing
  * @property {(stopLookup: void) => void} stopLookup
  * @property {(error: Error) => void} error
@@ -28,7 +28,7 @@ export class MdnsDiscovery extends TypedEmitter {
 
   /**
    * Lookup a service by its name
-   * @param {import('@gravitysoftware/dnssd').ServiceType|string} serviceType
+   * @param {import('@gravitysoftware/dnssd').ServiceIdentifier|string} serviceType
    */
   async lookup(serviceType) {
     if (this.#browse) {
@@ -83,10 +83,8 @@ export class MdnsDiscovery extends TypedEmitter {
 
   /**
    * Announce a service with a name and port
-   * @param {import('@gravitysoftware/dnssd').ServiceType|string} serviceType
-   * @param {Object} options
-   * @param {number} options.port - port for the service
-   * @param {object} options.txt - txt records for the service
+   * @param {import('@gravitysoftware/dnssd').ServiceIdentifier|string} serviceType
+   * @param {import('@gravitysoftware/dnssd').Service} options
    */
   announce(serviceType, options) {
     const { port, txt } = options
@@ -121,7 +119,7 @@ export class MdnsDiscovery extends TypedEmitter {
   }
 
   /**
-   * @param {import('@gravitysoftware/dnssd').ServiceTypeOptions} options
+   * @param {import('@gravitysoftware/dnssd').Service} options
    */
   createServiceType(options) {
     return new dnssd.ServiceType(options)

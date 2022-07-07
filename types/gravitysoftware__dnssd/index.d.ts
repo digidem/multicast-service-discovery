@@ -26,17 +26,19 @@ declare module '@gravitysoftware/dnssd' {
     constructor(type: ServiceType)
 
     on(event: 'error', listener: (error: Error) => void): void
-    on(event: 'serviceUp', listener: (service: ServiceType) => void): void
-    on(event: 'serviceDown', listener: (service: ServiceType) => void): void
-    on(event: 'serviceChanged', listener: (service: ServiceType) => void): void
+    on(event: 'serviceUp', listener: (service: Service) => void): void
+    on(event: 'serviceDown', listener: (service: Service) => void): void
+    on(event: 'serviceChanged', listener: (service: Service) => void): void
     on(event: 'stop', listener: () => void): void
     start(): void
     stop(): void
   }
 
   export class ServiceType {
-    constructor(options: ServiceTypeOptions)
+    constructor (serviceType: Service)
+  }
 
+  export class Service {
     host: string
     port: number
     txt: {
@@ -44,9 +46,9 @@ declare module '@gravitysoftware/dnssd' {
     }
   }
 
-  interface ServiceTypeOptions {
+  interface ServiceIdentifier {
     name: string
-    protocol: number
+    protocol: string
     subtypes: string[]
   }
 }
