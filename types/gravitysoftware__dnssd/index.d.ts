@@ -35,7 +35,7 @@ declare module '@gravitysoftware/dnssd' {
   }
 
   export class ServiceType {
-    constructor (serviceType: Service)
+    constructor(serviceType: Service)
   }
 
   export class Service {

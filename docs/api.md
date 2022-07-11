@@ -37,7 +37,7 @@ Lookup a service by its name
 
 #### Parameters
 
-- `serviceType` **(dnssd.ServiceType | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
+- `serviceType`
 
 ### stopLookup
 
@@ -49,11 +49,8 @@ Announce a service with a name and port
 
 #### Parameters
 
-- `serviceType` **(dnssd.ServiceType | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))**
-- `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
-
-  - `options.port` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** port for the service
-  - `options.txt` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** txt records for the service
+- `serviceType`
+- `options`
 
 ### updateTxt
 
@@ -65,7 +62,7 @@ Announce a service with a name and port
 
 #### Parameters
 
-- `options` **dnssd.ServiceTypeOptions**
+- `options`
 
 ### unannounce
 
@@ -81,8 +78,4 @@ Unannounce and/or stop lookup of a service
 
 ## advertise
 
-Type: (dnssd.Advertisement | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))
-
 ## browse
-
-Type: (dnssd.Browser | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))

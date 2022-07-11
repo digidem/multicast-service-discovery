@@ -12,13 +12,11 @@
     "checkJs": true,
     "emitDeclarationOnly": true,
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "removeComments": true,
     "typeRoots": ["node_modules/@types", "types"],
-    "paths": {
-      "*": ["./types/*"]
-    }
+    "types": ["@gravitysoftware/dnssd"]
   },
-  "include": ["index.js", "types"],
+  "files": ["types/gravitysoftware__dnssd/index.d.ts", "index.js"],
   "exclude": ["examples", "tests"]
 }
