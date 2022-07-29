@@ -1,11 +1,11 @@
-# mdns-sd-discovery
+# multicast-service-discovery
 
 Connect to services on a local network using mdns.
 
 ## Install
 
 ```shell
-npm i mdns-sd-discovery
+npm i multicast-service-discovery
 ```
 
 ## API docs
