@@ -1,0 +1,6 @@
+{
+	"allReflectionsHaveOwnDocument": true,
+	"cleanOutputDir": false,
+	"readme": "docs/index.md",
+	"name": "API"
+}
