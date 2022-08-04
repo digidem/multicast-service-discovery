@@ -2,10 +2,24 @@ import { TypedEmitter } from 'tiny-typed-emitter'
 import dnssd from '@gravitysoftware/dnssd'
 
 /**
+ * @typedef {Object} Service
+ * @property {string} host - hostname of the service
+ * @property {number} port - port of the service
+ * @property {Object<string, any>} txt - TXT records of the service
+ */
+
+/**
+ * @typedef {Object} ServiceType
+ * @property {string} name - name of the service type
+ * @property {string} protocol - protocol of the service type
+ * @property {string[]} subtypes - subtypes of the service type
+ */
+
+/**
  * @typedef {Object} MdnsDiscoveryEvents
- * @property {(service: import('@gravitysoftware/dnssd').Service) => void} service
- * @property {(serviceDown: import('@gravitysoftware/dnssd').Service) => void} serviceDown
- * @property {(serviceChanged: import('@gravitysoftware/dnssd').Service) => void} serviceChanged
+ * @property {(service: Service) => void} service
+ * @property {(serviceDown: Service) => void} serviceDown
+ * @property {(serviceChanged: Service) => void} serviceChanged
  * @property {(stopAnnouncing: void) => void} stopAnnouncing
  * @property {(stopLookup: void) => void} stopLookup
  * @property {(error: Error) => void} error
@@ -28,7 +42,7 @@ export class MdnsDiscovery extends TypedEmitter {
 
   /**
    * Lookup a service by its name
-   * @param {import('@gravitysoftware/dnssd').ServiceIdentifier|string} serviceType
+   * @param {ServiceType | string} serviceType
    */
   async lookup(serviceType) {
     if (this.#browse) {
@@ -83,8 +97,8 @@ export class MdnsDiscovery extends TypedEmitter {
 
   /**
    * Announce a service with a name and port
-   * @param {import('@gravitysoftware/dnssd').ServiceIdentifier|string} serviceType
-   * @param {import('@gravitysoftware/dnssd').Service} options
+   * @param {ServiceType|string} serviceType
+   * @param {Service} options
    */
   announce(serviceType, options) {
     const { port, txt } = options
@@ -112,14 +126,14 @@ export class MdnsDiscovery extends TypedEmitter {
   }
 
   /**
-   * @param {object} txt - object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations
+   * @param {Object<string, any>} txt - object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations
    */
   updateTxt(txt) {
     this.#advertise?.updateTXT(txt)
   }
 
   /**
-   * @param {import('@gravitysoftware/dnssd').Service} options
+   * @param {Service} options
    */
   createServiceType(options) {
     return new dnssd.ServiceType(options)

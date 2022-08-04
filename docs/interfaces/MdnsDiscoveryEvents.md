@@ -35,13 +35,13 @@
 
 #### Defined in
 
-[index.js:11](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L11)
+[index.js:25](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L25)
 
 ___
 
 ### service
 
-• **service**: (`service`: `Service`) => `void`
+• **service**: (`service`: [`Service`](Service.md)) => `void`
 
 #### Type declaration
 
@@ -51,7 +51,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `service` | `Service` |
+| `service` | [`Service`](Service.md) |
 
 ##### Returns
 
@@ -59,13 +59,13 @@ ___
 
 #### Defined in
 
-[index.js:6](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L6)
+[index.js:20](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L20)
 
 ___
 
 ### serviceChanged
 
-• **serviceChanged**: (`serviceChanged`: `Service`) => `void`
+• **serviceChanged**: (`serviceChanged`: [`Service`](Service.md)) => `void`
 
 #### Type declaration
 
@@ -75,7 +75,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `serviceChanged` | `Service` |
+| `serviceChanged` | [`Service`](Service.md) |
 
 ##### Returns
 
@@ -83,13 +83,13 @@ ___
 
 #### Defined in
 
-[index.js:8](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L8)
+[index.js:22](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L22)
 
 ___
 
 ### serviceDown
 
-• **serviceDown**: (`serviceDown`: `Service`) => `void`
+• **serviceDown**: (`serviceDown`: [`Service`](Service.md)) => `void`
 
 #### Type declaration
 
@@ -99,7 +99,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `serviceDown` | `Service` |
+| `serviceDown` | [`Service`](Service.md) |
 
 ##### Returns
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[index.js:7](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L7)
+[index.js:21](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L21)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[index.js:9](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L9)
+[index.js:23](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L23)
 
 ___
 
@@ -155,4 +155,4 @@ ___
 
 #### Defined in
 
-[index.js:10](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L10)
+[index.js:24](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L24)

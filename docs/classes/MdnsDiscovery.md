@@ -65,7 +65,7 @@ TypedEmitter.constructor
 
 #### Defined in
 
-[index.js:22](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L22)
+[index.js:36](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L36)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[index.js:27](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L27)
+[index.js:41](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L41)
 
 ___
 
@@ -134,8 +134,8 @@ Announce a service with a name and port
 
 | Name | Type |
 | :------ | :------ |
-| `serviceType` | `string` \| `ServiceIdentifier` |
-| `options` | `Service` |
+| `serviceType` | `string` \| [`ServiceType`](../interfaces/ServiceType.md) |
+| `options` | [`Service`](../interfaces/Service.md) |
 
 #### Returns
 
@@ -143,7 +143,7 @@ Announce a service with a name and port
 
 #### Defined in
 
-[index.js:89](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L89)
+[index.js:103](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L103)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Service` |
+| `options` | [`Service`](../interfaces/Service.md) |
 
 #### Returns
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[index.js:124](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L124)
+[index.js:138](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L138)
 
 ___
 
@@ -179,7 +179,7 @@ Unannounce and/or stop lookup of a service
 
 #### Defined in
 
-[index.js:148](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L148)
+[index.js:162](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L162)
 
 ___
 
@@ -320,7 +320,7 @@ Lookup a service by its name
 
 | Name | Type |
 | :------ | :------ |
-| `serviceType` | `string` \| `ServiceIdentifier` |
+| `serviceType` | `string` \| [`ServiceType`](../interfaces/ServiceType.md) |
 
 #### Returns
 
@@ -328,7 +328,7 @@ Lookup a service by its name
 
 #### Defined in
 
-[index.js:33](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L33)
+[index.js:47](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L47)
 
 ___
 
@@ -608,7 +608,7 @@ Stop looking up a service
 
 #### Defined in
 
-[index.js:69](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L69)
+[index.js:83](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L83)
 
 ___
 
@@ -630,7 +630,7 @@ Stop announcing the service
 
 #### Defined in
 
-[index.js:132](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L132)
+[index.js:146](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L146)
 
 ___
 
@@ -642,7 +642,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `txt` | `object` | object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations |
+| `txt` | `Object` | object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations |
 
 #### Returns
 
@@ -650,4 +650,4 @@ ___
 
 #### Defined in
 
-[index.js:117](https://github.com/digidem/mdns-sd-discovery/blob/4e506a6/index.js#L117)
+[index.js:131](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L131)

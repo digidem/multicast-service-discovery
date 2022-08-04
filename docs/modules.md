@@ -11,3 +11,5 @@
 ### Interfaces
 
 - [MdnsDiscoveryEvents](interfaces/MdnsDiscoveryEvents.md)
+- [Service](interfaces/Service.md)
+- [ServiceType](interfaces/ServiceType.md)
