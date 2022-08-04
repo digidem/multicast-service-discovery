@@ -1,0 +1,8 @@
+{
+  "allReflectionsHaveOwnDocument": true,
+  "cleanOutputDir": false,
+  "readme": "none",
+  "name": "API",
+  "excludePrivate": true,
+  "excludeExternals": true
+}
