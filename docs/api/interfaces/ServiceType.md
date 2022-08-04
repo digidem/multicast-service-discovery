@@ -18,9 +18,9 @@
 
 #### Defined in
 
-[index.js:13](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L13)
+[index.js:13](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L13)
 
-___
+---
 
 ### protocol
 
@@ -28,9 +28,9 @@ ___
 
 #### Defined in
 
-[index.js:14](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L14)
+[index.js:14](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L14)
 
-___
+---
 
 ### subtypes
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[index.js:15](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L15)
+[index.js:15](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L15)

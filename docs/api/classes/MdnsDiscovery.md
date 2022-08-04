@@ -46,10 +46,10 @@ Announce a service with a name and port
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name          | Type                                                      |
+| :------------ | :-------------------------------------------------------- |
 | `serviceType` | `string` \| [`ServiceType`](../interfaces/ServiceType.md) |
-| `options` | [`Service`](../interfaces/Service.md) |
+| `options`     | [`Service`](../interfaces/Service.md)                     |
 
 #### Returns
 
@@ -57,9 +57,9 @@ Announce a service with a name and port
 
 #### Defined in
 
-[index.js:103](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L103)
+[index.js:103](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L103)
 
-___
+---
 
 ### createServiceType
 
@@ -67,8 +67,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type                                          |
+| :-------- | :-------------------------------------------- |
 | `options` | [`ServiceType`](../interfaces/ServiceType.md) |
 
 #### Returns
@@ -77,9 +77,9 @@ ___
 
 #### Defined in
 
-[index.js:138](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L138)
+[index.js:138](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L138)
 
-___
+---
 
 ### destroy
 
@@ -93,9 +93,9 @@ Unannounce and/or stop lookup of a service
 
 #### Defined in
 
-[index.js:162](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L162)
+[index.js:162](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L162)
 
-___
+---
 
 ### lookup
 
@@ -105,8 +105,8 @@ Lookup a service by its name
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name          | Type                                                      |
+| :------------ | :-------------------------------------------------------- |
 | `serviceType` | `string` \| [`ServiceType`](../interfaces/ServiceType.md) |
 
 #### Returns
@@ -115,9 +115,9 @@ Lookup a service by its name
 
 #### Defined in
 
-[index.js:47](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L47)
+[index.js:47](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L47)
 
-___
+---
 
 ### stopLookup
 
@@ -131,9 +131,9 @@ Stop looking up a service
 
 #### Defined in
 
-[index.js:83](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L83)
+[index.js:83](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L83)
 
-___
+---
 
 ### unannounce
 
@@ -143,9 +143,9 @@ Stop announcing the service
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `immediate?` | `boolean` | `false` | if true, unannounce immediately |
+| Name         | Type      | Default value | Description                     |
+| :----------- | :-------- | :------------ | :------------------------------ |
+| `immediate?` | `boolean` | `false`       | if true, unannounce immediately |
 
 #### Returns
 
@@ -153,9 +153,9 @@ Stop announcing the service
 
 #### Defined in
 
-[index.js:146](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L146)
+[index.js:146](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L146)
 
-___
+---
 
 ### updateTxt
 
@@ -163,8 +163,8 @@ ___
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name  | Type     | Description                                                                                                                                                                                                                                          |
+| :---- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `txt` | `Object` | object with keys and values of txt records. keys must be less than 9 characters, values must be a string, buffer, number, or boolean. More details on validation restrictions: https://gitlab.com/gravitysoftware/dnssd.js/-/tree/master#validations |
 
 #### Returns
@@ -173,4 +173,4 @@ ___
 
 #### Defined in
 
-[index.js:131](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L131)
+[index.js:131](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L131)

@@ -18,9 +18,9 @@
 
 #### Defined in
 
-[index.js:6](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L6)
+[index.js:6](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L6)
 
-___
+---
 
 ### port
 
@@ -28,9 +28,9 @@ ___
 
 #### Defined in
 
-[index.js:7](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L7)
+[index.js:7](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L7)
 
-___
+---
 
 ### txt
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[index.js:8](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L8)
+[index.js:8](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L8)

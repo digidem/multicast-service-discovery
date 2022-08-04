@@ -25,7 +25,7 @@
 
 ##### Parameters
 
-| Name | Type |
+| Name    | Type    |
 | :------ | :------ |
 | `error` | `Error` |
 
@@ -35,9 +35,9 @@
 
 #### Defined in
 
-[index.js:25](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L25)
+[index.js:25](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L25)
 
-___
+---
 
 ### service
 
@@ -49,8 +49,8 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type                    |
+| :-------- | :---------------------- |
 | `service` | [`Service`](Service.md) |
 
 ##### Returns
@@ -59,9 +59,9 @@ ___
 
 #### Defined in
 
-[index.js:20](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L20)
+[index.js:20](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L20)
 
-___
+---
 
 ### serviceChanged
 
@@ -73,8 +73,8 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type                    |
+| :--------------- | :---------------------- |
 | `serviceChanged` | [`Service`](Service.md) |
 
 ##### Returns
@@ -83,9 +83,9 @@ ___
 
 #### Defined in
 
-[index.js:22](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L22)
+[index.js:22](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L22)
 
-___
+---
 
 ### serviceDown
 
@@ -97,8 +97,8 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name          | Type                    |
+| :------------ | :---------------------- |
 | `serviceDown` | [`Service`](Service.md) |
 
 ##### Returns
@@ -107,9 +107,9 @@ ___
 
 #### Defined in
 
-[index.js:21](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L21)
+[index.js:21](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L21)
 
-___
+---
 
 ### stopAnnouncing
 
@@ -121,8 +121,8 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type   |
+| :--------------- | :----- |
 | `stopAnnouncing` | `void` |
 
 ##### Returns
@@ -131,9 +131,9 @@ ___
 
 #### Defined in
 
-[index.js:23](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L23)
+[index.js:23](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L23)
 
-___
+---
 
 ### stopLookup
 
@@ -145,8 +145,8 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type   |
+| :----------- | :----- |
 | `stopLookup` | `void` |
 
 ##### Returns
@@ -155,4 +155,4 @@ ___
 
 #### Defined in
 
-[index.js:24](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L24)
+[index.js:24](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L24)
