@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint .",
     "format": "prettier . --write",
-    "doc": "typedoc --plugin typedoc-plugin-markdown --out docs index.js",
+    "doc": "typedoc --plugin typedoc-plugin-markdown --out docs/api index.js",
     "type": "tsc",
     "test": "brittle tests/*.js",
     "build": "npm run lint && npm run type && npm run doc && npm run format",

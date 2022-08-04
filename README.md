@@ -10,7 +10,7 @@ npm i multicast-service-discovery
 
 ## API docs
 
-See the [generated API docs](docs/api.md).
+See the [generated API docs](docs/api).
 
 ## Example usage
 

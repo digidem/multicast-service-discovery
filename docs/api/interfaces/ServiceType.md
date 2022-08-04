@@ -1,4 +1,4 @@
-[API](../README.md) / [Exports](../modules.md) / ServiceType
+[API](../README.md) / ServiceType
 
 # Interface: ServiceType<\>
 
@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[index.js:13](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L13)
+[index.js:13](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L13)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[index.js:14](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L14)
+[index.js:14](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L14)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[index.js:15](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L15)
+[index.js:15](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L15)

@@ -1,4 +1,4 @@
-[API](../README.md) / [Exports](../modules.md) / Service
+[API](../README.md) / Service
 
 # Interface: Service<\>
 
@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[index.js:6](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L6)
+[index.js:6](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L6)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[index.js:7](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L7)
+[index.js:7](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L7)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[index.js:8](https://github.com/digidem/mdns-sd-discovery/blob/bc3bd7f/index.js#L8)
+[index.js:8](https://github.com/digidem/mdns-sd-discovery/blob/cb2fcc2/index.js#L8)

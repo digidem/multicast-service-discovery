@@ -1,6 +1,8 @@
 {
-	"allReflectionsHaveOwnDocument": true,
-	"cleanOutputDir": false,
-	"readme": "docs/index.md",
-	"name": "API"
+  "allReflectionsHaveOwnDocument": true,
+  "cleanOutputDir": false,
+  "readme": "none",
+  "name": "API",
+  "excludePrivate": true,
+  "excludeExternals": true
 }

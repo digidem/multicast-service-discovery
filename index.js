@@ -133,7 +133,7 @@ export class MdnsDiscovery extends TypedEmitter {
   }
 
   /**
-   * @param {Service} options
+   * @param {ServiceType} options
    */
   createServiceType(options) {
     return new dnssd.ServiceType(options)
