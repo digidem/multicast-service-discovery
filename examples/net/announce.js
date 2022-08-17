@@ -11,4 +11,8 @@ const server = net.createServer((socket) => {
 server.listen(port, () => {
   console.log(`listening on port ${port}`)
   discover.announce('mdns-net-example', { port })
+
+  console.log(`
+run "node examples/net/lookup.js" in another terminal window to see the service announcement
+`)
 })

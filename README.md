@@ -1,6 +1,6 @@
 # multicast-service-discovery
 
-Connect to services on a local network using mdns.
+Announce and look up services on a local network using mdns.
 
 ## Install
 

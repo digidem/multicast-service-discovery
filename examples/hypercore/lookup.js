@@ -14,7 +14,7 @@ const core = new Hypercore(ram, key)
 // wait for the core to be ready
 await core.ready()
 
-discover.on('service', (name, service) => {
+discover.on('service', (service) => {
   // create a tcp socket to connect to the service
   const socket = net.connect({
     host: service.host,
@@ -29,6 +29,7 @@ discover.on('service', (name, service) => {
 
   // listen for the socket to make a connection
   socket.on('connect', async () => {
+    console.log('connection')
     // create a replication stream from the core and pipe the socket stream into the replication stream and back again
     // the socket stream is a remote hypercore replication stream
     socket.pipe(core.replicate(true)).pipe(socket)
