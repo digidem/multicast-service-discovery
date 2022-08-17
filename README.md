@@ -40,6 +40,10 @@ discover.on('service', (service) => {
 discover.lookup('mdns-basic-example')
 ```
 
+### Troubleshooting
+
+If you see `Error: Timed out getting default route` when using with nodejs versions >=18.0.0 to <18.4.0, upgrade to at least 18.4.0 to resolve this.
+
 ## License
 
 [ISC](LICENSE.md)
