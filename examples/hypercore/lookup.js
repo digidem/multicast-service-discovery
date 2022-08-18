@@ -41,4 +41,4 @@ discover.on('service', (service) => {
   })
 })
 
-discover.lookup('mdns-hypercore-example')
+discover.lookup(core.discoveryKey.toString('hex'))

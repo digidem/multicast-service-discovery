@@ -43,5 +43,5 @@ server.on('error', (err) => {
 server.listen(async () => {
   const address = server.address()
   // announce the server via mdns
-  discover.announce('mdns-hypercore-example', { port: address.port })
+  discover.announce(core.discoveryKey.toString('hex'), { port: address.port })
 })
