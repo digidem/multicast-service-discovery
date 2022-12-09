@@ -6,11 +6,22 @@
 
 ### Properties
 
+- [addresses](Service.md#addresses)
 - [host](Service.md#host)
 - [port](Service.md#port)
 - [txt](Service.md#txt)
 
 ## Properties
+
+### addresses
+
+• **addresses**: `undefined` \| `string`[]
+
+#### Defined in
+
+[index.js:9](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L9)
+
+---
 
 ### host
 
@@ -18,7 +29,7 @@
 
 #### Defined in
 
-[index.js:6](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L6)
+[index.js:6](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L6)
 
 ---
 
@@ -28,7 +39,7 @@
 
 #### Defined in
 
-[index.js:7](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L7)
+[index.js:7](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L7)
 
 ---
 
@@ -38,4 +49,4 @@
 
 #### Defined in
 
-[index.js:8](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L8)
+[index.js:8](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L8)

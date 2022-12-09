@@ -6,6 +6,7 @@ import dnssd from '@gravitysoftware/dnssd'
  * @property {string} host - hostname of the service
  * @property {number} port - port of the service
  * @property {Object<string, any>} txt - TXT records of the service
+ * @property {string[]} [addresses] - addresses of the service
  */
 
 /**

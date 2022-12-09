@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[index.js:25](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L25)
+[index.js:26](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L26)
 
 ---
 
@@ -59,7 +59,7 @@
 
 #### Defined in
 
-[index.js:20](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L20)
+[index.js:21](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L21)
 
 ---
 
@@ -83,7 +83,7 @@
 
 #### Defined in
 
-[index.js:22](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L22)
+[index.js:23](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L23)
 
 ---
 
@@ -107,7 +107,7 @@
 
 #### Defined in
 
-[index.js:21](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L21)
+[index.js:22](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L22)
 
 ---
 
@@ -131,7 +131,7 @@
 
 #### Defined in
 
-[index.js:23](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L23)
+[index.js:24](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L24)
 
 ---
 
@@ -155,4 +155,4 @@
 
 #### Defined in
 
-[index.js:24](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L24)
+[index.js:25](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L25)

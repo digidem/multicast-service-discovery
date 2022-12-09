@@ -57,7 +57,7 @@ Announce a service with a name and port
 
 #### Defined in
 
-[index.js:103](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L103)
+[index.js:104](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L104)
 
 ---
 
@@ -77,7 +77,7 @@ Announce a service with a name and port
 
 #### Defined in
 
-[index.js:138](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L138)
+[index.js:139](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L139)
 
 ---
 
@@ -93,7 +93,7 @@ Unannounce and/or stop lookup of a service
 
 #### Defined in
 
-[index.js:162](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L162)
+[index.js:163](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L163)
 
 ---
 
@@ -115,7 +115,7 @@ Lookup a service by its name
 
 #### Defined in
 
-[index.js:47](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L47)
+[index.js:48](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L48)
 
 ---
 
@@ -131,7 +131,7 @@ Stop looking up a service
 
 #### Defined in
 
-[index.js:83](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L83)
+[index.js:84](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L84)
 
 ---
 
@@ -153,7 +153,7 @@ Stop announcing the service
 
 #### Defined in
 
-[index.js:146](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L146)
+[index.js:147](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L147)
 
 ---
 
@@ -173,4 +173,4 @@ Stop announcing the service
 
 #### Defined in
 
-[index.js:131](https://github.com/digidem/mdns-sd-discovery/blob/0b6321d/index.js#L131)
+[index.js:132](https://github.com/digidem/multicast-service-discovery/blob/7045b02/index.js#L132)

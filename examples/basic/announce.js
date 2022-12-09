@@ -4,7 +4,7 @@ const discover = new MdnsDiscovery()
 
 const serviceType = discover.createServiceType({
   name: '_example',
-  protocol: '_tcp'
+  protocol: '_tcp',
 })
 
 discover.announce(serviceType, { port: 3456 })

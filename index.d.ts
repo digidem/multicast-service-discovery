@@ -15,6 +15,7 @@ export type Service = {
   txt: {
     [x: string]: any
   }
+  addresses?: string[] | undefined
 }
 export type ServiceType = {
   name: string
